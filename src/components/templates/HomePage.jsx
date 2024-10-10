@@ -38,8 +38,8 @@ function HomePage() {
 
         <div> 
             
-            <Pagination page={page} setPage={setPage} />
             <TableCoin coins={ coins } isLoading={ isLoding } /> 
+            <Pagination page={page} setPage={setPage} />
         
         </div>)
 
