@@ -1,8 +1,5 @@
-import { useState } from "react";
 
-function Pagination() {
-
-    const [page, setPage] = useState(1);
+function Pagination({page, setPage}) {
 
     const previousHandler = () => {
 
@@ -35,7 +32,7 @@ function Pagination() {
                 </>
             ) }
             <span>...</span>
-            
+
             <p style={ {color: page === 9 ? "red" : "inherit"} }>9</p>
             <p style={ {color: page === 10 ? "red" : "inherit"} }>10</p>
 
