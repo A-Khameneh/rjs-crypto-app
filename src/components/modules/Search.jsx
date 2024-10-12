@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { searchCoin } from "../../services/cryptoApi";
+import { LineWave } from "react-loader-spinner";
 
 function Search({ currency, setCurrency }) {
 
@@ -14,6 +15,7 @@ function Search({ currency, setCurrency }) {
 
             try {
 
+                setCoins([]);
                 if(!text) return;
     
                 const res = await fetch(searchCoin(text), {signal: controller.signal});
@@ -55,6 +57,21 @@ function Search({ currency, setCurrency }) {
                 <option value="jpy">JPY</option>
 
             </select>
+
+            <div>
+
+                <ul>
+
+                    {coins.map(coin => <li key={coin.id}>
+
+                        <img src={coin.thumb} alt={coin.name} /> 
+                        <p> {coin.name} </p>
+                        
+                     </li>)}
+
+                </ul>
+
+            </div>
 
         </div>
 
