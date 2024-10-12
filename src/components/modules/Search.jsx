@@ -73,7 +73,9 @@ function Search({ currency, setCurrency }) {
 
             </select>
 
-            <div className={styles.searchResult}>
+            { (!!coins.length || isLoading) && (
+
+                <div className={styles.searchResult}>
 
                 {isLoading && <RotatingLines width="50px" height="50px" strokeWidth="2" strokeColor="#3874ff" />}
 
@@ -83,12 +85,14 @@ function Search({ currency, setCurrency }) {
 
                         <img src={coin.thumb} alt={coin.name} /> 
                         <p> {coin.name} </p>
-                        
-                     </li>)}
+        
+                    </li>)}
 
                 </ul>
 
-            </div>
+                </div>
+
+            ) }
 
         </div>
 
