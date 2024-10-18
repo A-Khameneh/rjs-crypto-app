@@ -10,6 +10,17 @@ function Chart({ chart, setChart }) {
 
     console.log(convertData( chart, type ));
 
+    const typeHandler = event => {
+
+        if (event.target.tagName === "BUTTON") {
+
+            const type = event.target.innerText.toLowerCase().replace(" ", "_");
+            setType(type);
+
+        }
+
+    }
+
     return (
 
         <div className={styles.container}>
@@ -30,11 +41,11 @@ function Chart({ chart, setChart }) {
 
                 </div>
 
-                <div className={styles.types} >
+                <div className={styles.types} onClick={typeHandler} >
 
-                    <button>Prices</button>
-                    <button>Market Caps</button>
-                    <button>Total Volumes</button>
+                    <button className={type === "prices" ? styles.selected : null} >Prices</button>
+                    <button className={type === "market_caps" ? styles.selected : null} >Market Caps</button>
+                    <button className={type === "total_volumes" ? styles.selected : null} >Total Volumes</button>
 
                 </div>
 
