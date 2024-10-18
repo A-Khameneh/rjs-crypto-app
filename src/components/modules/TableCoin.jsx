@@ -38,6 +38,7 @@ function TableCoin( {coins, isLoading, setChart} ) {
 
 export default TableCoin;
 
+
 function TableRow({coin, setChart}) {
 
     const showHandler = async () => {
@@ -47,7 +48,7 @@ function TableRow({coin, setChart}) {
             const res = await fetch ( marketChart( coin.id ) );
             const json = await res.json();
             console.log(json);
-            setChart(json);
+            setChart({...json, coin});
 
         } catch (err) {
 
